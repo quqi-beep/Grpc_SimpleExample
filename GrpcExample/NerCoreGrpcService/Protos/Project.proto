@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "NerCoreGrpcService.Protos";
+
+package Project;
+
+service ProjectService{
+	rpc AddProjectAsync(AddProjectRequest) returns(AddProjectReponse);
+}
+
+message AddProjectRequest{
+	string ProjectName=1;
+}
+
+message AddProjectReponse{
+	string No=1;
+	string ProjectName=2;
+}
