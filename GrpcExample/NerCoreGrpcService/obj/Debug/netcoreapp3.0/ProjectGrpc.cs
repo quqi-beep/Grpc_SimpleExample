@@ -14,6 +14,8 @@ namespace NerCoreGrpcService.Protos {
 
     static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.AddProjectRequest> __Marshaller_Project_AddProjectRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NerCoreGrpcService.Protos.AddProjectRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.AddProjectReponse> __Marshaller_Project_AddProjectReponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NerCoreGrpcService.Protos.AddProjectReponse.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest> __Marshaller_Project_QueryProjectDetailRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NerCoreGrpcService.Protos.QueryProjectDetailRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> __Marshaller_Project_QueryProjectDetailReponse = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::NerCoreGrpcService.Protos.QueryProjectDetailReponse.Parser.ParseFrom);
 
     static readonly grpc::Method<global::NerCoreGrpcService.Protos.AddProjectRequest, global::NerCoreGrpcService.Protos.AddProjectReponse> __Method_AddProjectAsync = new grpc::Method<global::NerCoreGrpcService.Protos.AddProjectRequest, global::NerCoreGrpcService.Protos.AddProjectReponse>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace NerCoreGrpcService.Protos {
         "AddProjectAsync",
         __Marshaller_Project_AddProjectRequest,
         __Marshaller_Project_AddProjectReponse);
+
+    static readonly grpc::Method<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> __Method_QueryProjectDetailAsync = new grpc::Method<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "QueryProjectDetailAsync",
+        __Marshaller_Project_QueryProjectDetailRequest,
+        __Marshaller_Project_QueryProjectDetailReponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -32,7 +41,18 @@ namespace NerCoreGrpcService.Protos {
     [grpc::BindServiceMethod(typeof(ProjectService), "BindService")]
     public abstract partial class ProjectServiceBase
     {
+      /// <summary>
+      ///添加项目（简单rpc模式）
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
       public virtual global::System.Threading.Tasks.Task<global::NerCoreGrpcService.Protos.AddProjectReponse> AddProjectAsync(global::NerCoreGrpcService.Protos.AddProjectRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task QueryProjectDetailAsync(grpc::IAsyncStreamReader<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest> requestStream, grpc::IServerStreamWriter<global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -44,7 +64,8 @@ namespace NerCoreGrpcService.Protos {
     public static grpc::ServerServiceDefinition BindService(ProjectServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_AddProjectAsync, serviceImpl.AddProjectAsync).Build();
+          .AddMethod(__Method_AddProjectAsync, serviceImpl.AddProjectAsync)
+          .AddMethod(__Method_QueryProjectDetailAsync, serviceImpl.QueryProjectDetailAsync).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +75,7 @@ namespace NerCoreGrpcService.Protos {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, ProjectServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_AddProjectAsync, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::NerCoreGrpcService.Protos.AddProjectRequest, global::NerCoreGrpcService.Protos.AddProjectReponse>(serviceImpl.AddProjectAsync));
+      serviceBinder.AddMethod(__Method_QueryProjectDetailAsync, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse>(serviceImpl.QueryProjectDetailAsync));
     }
 
   }

@@ -26,15 +26,22 @@ namespace NerCoreGrpcService.Protos {
           string.Concat(
             "ChRQcm90b3MvUHJvamVjdC5wcm90bxIHUHJvamVjdCIoChFBZGRQcm9qZWN0",
             "UmVxdWVzdBITCgtQcm9qZWN0TmFtZRgBIAEoCSI0ChFBZGRQcm9qZWN0UmVw",
-            "b25zZRIKCgJObxgBIAEoCRITCgtQcm9qZWN0TmFtZRgCIAEoCTJbCg5Qcm9q",
-            "ZWN0U2VydmljZRJJCg9BZGRQcm9qZWN0QXN5bmMSGi5Qcm9qZWN0LkFkZFBy",
-            "b2plY3RSZXF1ZXN0GhouUHJvamVjdC5BZGRQcm9qZWN0UmVwb25zZUIcqgIZ",
-            "TmVyQ29yZUdycGNTZXJ2aWNlLlByb3Rvc2IGcHJvdG8z"));
+            "b25zZRIKCgJObxgBIAEoCRITCgtQcm9qZWN0TmFtZRgCIAEoCSIuChlRdWVy",
+            "eVByb2plY3REZXRhaWxSZXF1ZXN0EhEKCVByb2plY3RJZBgBIAEoBSIwChlR",
+            "dWVyeVByb2plY3REZXRhaWxSZXBvbnNlEhMKC1Byb2plY3ROYW1lGAEgASgJ",
+            "MsIBCg5Qcm9qZWN0U2VydmljZRJJCg9BZGRQcm9qZWN0QXN5bmMSGi5Qcm9q",
+            "ZWN0LkFkZFByb2plY3RSZXF1ZXN0GhouUHJvamVjdC5BZGRQcm9qZWN0UmVw",
+            "b25zZRJlChdRdWVyeVByb2plY3REZXRhaWxBc3luYxIiLlByb2plY3QuUXVl",
+            "cnlQcm9qZWN0RGV0YWlsUmVxdWVzdBoiLlByb2plY3QuUXVlcnlQcm9qZWN0",
+            "RGV0YWlsUmVwb25zZSgBMAFCHKoCGU5lckNvcmVHcnBjU2VydmljZS5Qcm90",
+            "b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::NerCoreGrpcService.Protos.AddProjectRequest), global::NerCoreGrpcService.Protos.AddProjectRequest.Parser, new[]{ "ProjectName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::NerCoreGrpcService.Protos.AddProjectReponse), global::NerCoreGrpcService.Protos.AddProjectReponse.Parser, new[]{ "No", "ProjectName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::NerCoreGrpcService.Protos.AddProjectReponse), global::NerCoreGrpcService.Protos.AddProjectReponse.Parser, new[]{ "No", "ProjectName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NerCoreGrpcService.Protos.QueryProjectDetailRequest), global::NerCoreGrpcService.Protos.QueryProjectDetailRequest.Parser, new[]{ "ProjectId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::NerCoreGrpcService.Protos.QueryProjectDetailReponse), global::NerCoreGrpcService.Protos.QueryProjectDetailReponse.Parser, new[]{ "ProjectName" }, null, null, null, null)
           }));
     }
     #endregion
@@ -411,6 +418,350 @@ namespace NerCoreGrpcService.Protos {
             break;
           }
           case 18: {
+            ProjectName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class QueryProjectDetailRequest : pb::IMessage<QueryProjectDetailRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<QueryProjectDetailRequest> _parser = new pb::MessageParser<QueryProjectDetailRequest>(() => new QueryProjectDetailRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<QueryProjectDetailRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::NerCoreGrpcService.Protos.ProjectReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailRequest(QueryProjectDetailRequest other) : this() {
+      projectId_ = other.projectId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailRequest Clone() {
+      return new QueryProjectDetailRequest(this);
+    }
+
+    /// <summary>Field number for the "ProjectId" field.</summary>
+    public const int ProjectIdFieldNumber = 1;
+    private int projectId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int ProjectId {
+      get { return projectId_; }
+      set {
+        projectId_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as QueryProjectDetailRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(QueryProjectDetailRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ProjectId != other.ProjectId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ProjectId != 0) hash ^= ProjectId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ProjectId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ProjectId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProjectId != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(ProjectId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ProjectId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ProjectId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(QueryProjectDetailRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ProjectId != 0) {
+        ProjectId = other.ProjectId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            ProjectId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            ProjectId = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class QueryProjectDetailReponse : pb::IMessage<QueryProjectDetailReponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<QueryProjectDetailReponse> _parser = new pb::MessageParser<QueryProjectDetailReponse>(() => new QueryProjectDetailReponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<QueryProjectDetailReponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::NerCoreGrpcService.Protos.ProjectReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailReponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailReponse(QueryProjectDetailReponse other) : this() {
+      projectName_ = other.projectName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public QueryProjectDetailReponse Clone() {
+      return new QueryProjectDetailReponse(this);
+    }
+
+    /// <summary>Field number for the "ProjectName" field.</summary>
+    public const int ProjectNameFieldNumber = 1;
+    private string projectName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ProjectName {
+      get { return projectName_; }
+      set {
+        projectName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as QueryProjectDetailReponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(QueryProjectDetailReponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (ProjectName != other.ProjectName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (ProjectName.Length != 0) hash ^= ProjectName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (ProjectName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ProjectName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (ProjectName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(ProjectName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (ProjectName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProjectName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(QueryProjectDetailReponse other) {
+      if (other == null) {
+        return;
+      }
+      if (other.ProjectName.Length != 0) {
+        ProjectName = other.ProjectName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            ProjectName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
             ProjectName = input.ReadString();
             break;
           }

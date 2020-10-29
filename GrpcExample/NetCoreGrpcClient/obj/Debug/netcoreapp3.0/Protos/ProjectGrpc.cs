@@ -44,6 +44,8 @@ namespace NerCoreGrpcService.Protos {
 
     static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.AddProjectRequest> __Marshaller_Project_AddProjectRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::NerCoreGrpcService.Protos.AddProjectRequest.Parser));
     static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.AddProjectReponse> __Marshaller_Project_AddProjectReponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::NerCoreGrpcService.Protos.AddProjectReponse.Parser));
+    static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest> __Marshaller_Project_QueryProjectDetailRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::NerCoreGrpcService.Protos.QueryProjectDetailRequest.Parser));
+    static readonly grpc::Marshaller<global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> __Marshaller_Project_QueryProjectDetailReponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse.Parser));
 
     static readonly grpc::Method<global::NerCoreGrpcService.Protos.AddProjectRequest, global::NerCoreGrpcService.Protos.AddProjectReponse> __Method_AddProjectAsync = new grpc::Method<global::NerCoreGrpcService.Protos.AddProjectRequest, global::NerCoreGrpcService.Protos.AddProjectReponse>(
         grpc::MethodType.Unary,
@@ -51,6 +53,13 @@ namespace NerCoreGrpcService.Protos {
         "AddProjectAsync",
         __Marshaller_Project_AddProjectRequest,
         __Marshaller_Project_AddProjectReponse);
+
+    static readonly grpc::Method<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> __Method_QueryProjectDetailAsync = new grpc::Method<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse>(
+        grpc::MethodType.DuplexStreaming,
+        __ServiceName,
+        "QueryProjectDetailAsync",
+        __Marshaller_Project_QueryProjectDetailRequest,
+        __Marshaller_Project_QueryProjectDetailReponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -81,21 +90,69 @@ namespace NerCoreGrpcService.Protos {
       {
       }
 
+      /// <summary>
+      ///添加项目（简单rpc模式）
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::NerCoreGrpcService.Protos.AddProjectReponse AddProjectAsync(global::NerCoreGrpcService.Protos.AddProjectRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return AddProjectAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///添加项目（简单rpc模式）
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
       public virtual global::NerCoreGrpcService.Protos.AddProjectReponse AddProjectAsync(global::NerCoreGrpcService.Protos.AddProjectRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_AddProjectAsync, null, options, request);
       }
+      /// <summary>
+      ///添加项目（简单rpc模式）
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::NerCoreGrpcService.Protos.AddProjectReponse> AddProjectAsyncAsync(global::NerCoreGrpcService.Protos.AddProjectRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return AddProjectAsyncAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
+      /// <summary>
+      ///添加项目（简单rpc模式）
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
       public virtual grpc::AsyncUnaryCall<global::NerCoreGrpcService.Protos.AddProjectReponse> AddProjectAsyncAsync(global::NerCoreGrpcService.Protos.AddProjectRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_AddProjectAsync, null, options, request);
+      }
+      /// <summary>
+      ///双向流模式
+      /// </summary>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncDuplexStreamingCall<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> QueryProjectDetailAsync(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return QueryProjectDetailAsync(new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      ///双向流模式
+      /// </summary>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncDuplexStreamingCall<global::NerCoreGrpcService.Protos.QueryProjectDetailRequest, global::NerCoreGrpcService.Protos.QueryProjectDetailReponse> QueryProjectDetailAsync(grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncDuplexStreamingCall(__Method_QueryProjectDetailAsync, null, options);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override ProjectServiceClient NewInstance(ClientBaseConfiguration configuration)
