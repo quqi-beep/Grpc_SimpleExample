@@ -9,6 +9,12 @@ namespace NerCoreGrpcService.Services
 {
     public class FnlinkerProjectService : ProjectService.ProjectServiceBase
     {
+        /// <summary>
+        /// 简单RPC模式
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override Task<AddProjectReponse> AddProjectAsync(AddProjectRequest request, ServerCallContext context)
         {
 
@@ -19,6 +25,13 @@ namespace NerCoreGrpcService.Services
             });
         }
 
+        /// <summary>
+        /// 双向流RPC模式
+        /// </summary>
+        /// <param name="requestStream"></param>
+        /// <param name="responseStream"></param>
+        /// <param name="context"></param>
+        /// <returns></returns>
         public override async Task QueryProjectDetailAsync(IAsyncStreamReader<QueryProjectDetailRequest> requestStream, IServerStreamWriter<QueryProjectDetailReponse> responseStream, ServerCallContext context)
         {
 
