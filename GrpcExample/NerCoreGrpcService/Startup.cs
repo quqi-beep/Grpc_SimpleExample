@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using NerCoreGrpcService.Protos;
-using NerCoreGrpcService.Services;
 
 namespace NerCoreGrpcService
 {
@@ -33,7 +27,7 @@ namespace NerCoreGrpcService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGrpcService<FnlinkerProjectService>();
+                endpoints.MapGrpcService<Services.OrderImplService>();
 
                 endpoints.MapGet("/", async context =>
                 {

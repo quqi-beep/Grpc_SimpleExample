@@ -1,0 +1,58 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+service OrderService {
+	//1:添加订单（简单rpc模式）
+	rpc AddOrderAsync (AddOrderRequest) returns (AddOrderResponse);
+
+	//2:修改订单 (客户端流模式)
+	rpc UpdateOrderAsync(stream UpdateOrderRequest) returns (UpdateOrderReponse);
+
+	//3:删除订单 (服务器端流模式)
+	rpc RemoveOrderAsync(RemoveOrderRequest) returns (stream RemoveOrderReponse);
+
+	//4:查询订单 (双向流模式)
+	rpc QueryOrderAsync(stream QueryOrderRequest) returns (stream QueryOrderReponse);
+}
+
+message AddOrderRequest{
+	int64  No=1;
+	string Name=2;
+	string Des=3;
+}
+
+message AddOrderResponse{
+	int64 No=1;
+}
+
+message UpdateOrderRequest{
+	int64 No=1;
+	string Name=2;
+}
+
+message UpdateOrderReponse{
+	bool IsUpdate=1;
+}
+
+message RemoveOrderRequest{
+	int64 No=1;
+}
+
+message RemoveOrderReponse{
+	bool IsRemove=1;
+}
+
+message QueryOrderRequest{
+	int64 No=1;
+}
+
+message QueryOrderReponse{
+   repeated Order Orders =1;
+}
+
+message Order {
+	int64  No=1;
+	string Name=2;
+	string Des=3;
+}

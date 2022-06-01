@@ -1,2 +1,0 @@
-obj\Debug\netcoreapp3.0/Project.cs \
-obj\Debug\netcoreapp3.0/ProjectGrpc.cs: Protos/Project.proto
